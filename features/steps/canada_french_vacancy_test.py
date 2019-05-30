@@ -55,7 +55,7 @@ def step_impl(context):
 @then("I check count of vacancies card  with '{language}' and '{country}' parameters in the vacancies block")
 def step_impl(context, language, country):
     home_page = HomePage(context.driver)
-    count = str(home_page.count_active_vacancy_cart()) + " jobs found"
+    count = str(home_page.count_active_vacancy_cart_country(country)) + " jobs found"
     quantity = home_page.active_vacancy_block_h3()
     if count != quantity:
         print(count, quantity)
@@ -65,4 +65,4 @@ def step_impl(context, language, country):
 @then("I print quantity of active vacancies")
 def step_impl(context):
     home_page = HomePage(context.driver)
-    print("On the page is " + str(home_page.count_active_vacancy_cart()), " active vacancy")
+    print("On the page is " + str(home_page.count_active_vacancy_cart_country()), " active vacancy")

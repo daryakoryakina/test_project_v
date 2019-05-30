@@ -45,9 +45,12 @@ class HomePage(BasePage):
         language_field = (By.XPATH, "//*[@class = 'selecter-selected' and contains (text(), '"+language+"')]")
         return self.get_element(language_field).text
 
-    def count_active_vacancy_cart(self, country):
+    def count_active_vacancy_cart_country(self, country):
         vacancy_carts = self.driver.find_elements(By.XPATH, "//*[@itemprop = 'addressRegion' and contains(text(),'"+country+"')]")
         return len(vacancy_carts)
+
+    def count_active_vacancy_cart_language(self, language):
+        vacancy_
 
     def active_vacancy_block_h3(self):
         return self.get_element(self.COUNT_VACANCY_CART).text
