@@ -1,3 +1,5 @@
+import time
+
 from behave import *
 
 from features.pages.home_page import HomePage
@@ -32,10 +34,10 @@ def step_impl(context, language):
     home_page.language_field_open()
 
 
-@then("I click to language '{language}' checkbox")
-def step_impl(context, language):
+@then("I click to language '{language}', '{param}' checkbox")
+def step_impl(context, language, param):
     home_page = HomePage(context.driver)
-    home_page.language_choice()
+    home_page.language_choice(param)
 
 
 @step("I see the '{language}' on the language's field")
@@ -50,10 +52,14 @@ def step_impl(context):
     home_page.apply_button()
 
 
-@when("I check count of vacancies card in the vacancies block")
-def step_impl(context):
+@then("I check count of vacancies card  with '{language}' and '{country}' parameters in the vacancies block")
+def step_impl(context, language, country):
     home_page = HomePage(context.driver)
-    assert str(home_page.count_active_vacancy_cart()) + " jobs found" == home_page.active_vacancy_block_h3()
+    count = str(home_page.count_active_vacancy_cart()) + " jobs found"
+    quantity = home_page.active_vacancy_block_h3()
+    if count != quantity:
+        print(count, quantity)
+    assert count == quantity
 
 
 @then("I print quantity of active vacancies")
