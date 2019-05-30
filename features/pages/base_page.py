@@ -22,3 +22,6 @@ class BasePage(object):
     # кликнуть на элемент с локатором
     def click_on(self, locator):
         self.get_element(locator).click()
+
+    def get_text(self, locator: object) -> object:
+        return self.get_element(locator).text
