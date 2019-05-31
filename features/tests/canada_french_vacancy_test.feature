@@ -1,5 +1,5 @@
 # Created by win10 at 28.05.2019
-Feature: quantity of active vacancies when choosing a country of Canada and french language
+Feature: quantity of active vacancies when choosing a country and language
 
 
   Scenario Outline: choice a country of '<country>'
