@@ -52,17 +52,18 @@ def step_impl(context):
     home_page.apply_button()
 
 
-@then("I check count of vacancies card  with '{language}' and '{country}' parameters in the vacancies block")
+@then("I check count of vacancies card with '{language}' and '{country}' parameters in the vacancies block")
 def step_impl(context, language, country):
     home_page = HomePage(context.driver)
-    count = str(home_page.count_active_vacancy_cart_country(country)) + " jobs found"
+    count_country_in_cart = str(home_page.count_active_vacancy_cart_country(country)) + " jobs found"
+    count_language_in_cart = str(home_page.count_active_vacancy_cart_language(language)) + " jobs found"
     quantity = home_page.active_vacancy_block_h3()
-    if count != quantity:
-        print(count, quantity)
-    assert count == quantity
+    if count_country_in_cart != count_language_in_cart != quantity:
+        print("country in cart is  ," + count_country_in_cart, "language in cart is  ," + count_language_in_cart, quantity)
+    assert count_country_in_cart == count_language_in_cart == quantity
 
 
-@then("I print quantity of active vacancies")
+@step("I print quantity vacancies")
 def step_impl(context):
     home_page = HomePage(context.driver)
-    print("On the page is " + str(home_page.count_active_vacancy_cart_country()), " active vacancy")
+    print(home_page.active_vacancy_block_h3())

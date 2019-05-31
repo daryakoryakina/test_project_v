@@ -37,20 +37,21 @@ class HomePage(BasePage):
         print(language_button)
         self.click_on(language_button)
 
-
     def apply_button(self):
         self.click_on(self.APPLY_BUTTON)
+        time.sleep(2)
 
     def language_in_field(self, language):
         language_field = (By.XPATH, "//*[@class = 'selecter-selected' and contains (text(), '"+language+"')]")
         return self.get_element(language_field).text
 
     def count_active_vacancy_cart_country(self, country):
-        vacancy_carts = self.driver.find_elements(By.XPATH, "//*[@itemprop = 'addressRegion' and contains(text(),'"+country+"')]")
-        return len(vacancy_carts)
+        vacancy_carts_country = self.driver.find_elements(By.XPATH, "//*[@itemprop = 'addressRegion' and contains(text(),'"+country+"')]")
+        return len(vacancy_carts_country)
 
     def count_active_vacancy_cart_language(self, language):
-        vacancy_
+        vacancy_carts_language = self.driver.find_elements(By.XPATH, "//*[@class = 'languages m0' and contains (text(), '"+language+"')]")
+        return len(vacancy_carts_language)
 
     def active_vacancy_block_h3(self):
         return self.get_element(self.COUNT_VACANCY_CART).text

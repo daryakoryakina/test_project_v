@@ -12,12 +12,14 @@ Feature: quantity of active vacancies when choosing a country of Canada and fren
     And I see the '<language>' on the language's field
     And I click to apply button
     Then I check count of vacancies card with '<language>' and '<country>' parameters in the vacancies block
-    Then I print quantity of active vacancies
+    And I print quantity vacancies
 
     Examples:
-    |country      | language | param   |
-    |Australia    | English  | ch-7  |
-    |Canada       | French   | ch-10 |
+    |country                 | language | param   |
+    |Australia               | English  | ch-7    |
+    |Canada                  | French   | ch-10   |
+    |Russian Federation      | Russian  | ch-22   |
+
 
    # Scenario Outline: choice a '<language>'
 
