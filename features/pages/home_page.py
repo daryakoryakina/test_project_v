@@ -34,7 +34,6 @@ class HomePage(BasePage):
 
     def language_choice(self, param):
         language_button = (By.XPATH, "//*[@for = '"+param+"']")
-        print(language_button)
         self.click_on(language_button)
 
     def apply_button(self):
