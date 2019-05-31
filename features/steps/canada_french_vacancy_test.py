@@ -67,3 +67,9 @@ def step_impl(context, language, country):
 def step_impl(context):
     home_page = HomePage(context.driver)
     print(home_page.active_vacancy_block_h3())
+
+
+@step("I clear filter")
+def step_impl(context):
+    home_page = HomePage(context.driver)
+    home_page.clear_filter()

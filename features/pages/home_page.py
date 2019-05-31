@@ -13,6 +13,7 @@ class HomePage(BasePage):
     APPLY_BUTTON = (By.XPATH, "(//a[@class = 'selecter-fieldset-submit'])")
     VACANCY_CART = (By.XPATH, "//*[@class = 'vacancies-blocks-container']//h4")
     COUNT_VACANCY_CART = (By.XPATH, "//div[@class = 'col-xs-12 pl0-md-down pr0-md-down']")
+    CLEAR_FILTER = (By.ID, "clear-filters-button")
 
     def verify_page(self):
         self.on_this_page(self.COUNTRY_FIELD, self.LANGUAGE_FIELD)
@@ -54,5 +55,8 @@ class HomePage(BasePage):
 
     def active_vacancy_block_h3(self):
         return self.get_element(self.COUNT_VACANCY_CART).text
+
+    def clear_filter(self):
+        self.click_on(self.CLEAR_FILTER)
 
 

@@ -13,6 +13,7 @@ Feature: quantity of active vacancies when choosing a country and language
     And I click to apply button
     Then I check count of vacancies card with '<language>' and '<country>' parameters in the vacancies block
     And I print quantity vacancies
+    And I clear filter
 
     Examples:
     |country                 | language | param   |
