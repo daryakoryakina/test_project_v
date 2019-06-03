@@ -32,6 +32,7 @@ class HomePage(BasePage):
 
     def language_field_open(self):
         self.click_on(self.LANGUAGE_FIELD)
+        time.sleep(2)
 
     def language_choice(self, param):
         language_button = (By.XPATH, "//*[@for = '"+param+"']")
@@ -39,7 +40,6 @@ class HomePage(BasePage):
 
     def apply_button(self):
         self.click_on(self.APPLY_BUTTON)
-        time.sleep(2)
 
     def language_in_field(self, language):
         language_field = (By.XPATH, "//*[@class = 'selecter-selected' and contains (text(), '"+language+"')]")

@@ -31,6 +31,7 @@ def step_impl(context, country):
 @then("I click to the '{language}' field")
 def step_impl(context, language):
     home_page = HomePage(context.driver)
+    time.sleep(3)
     home_page.language_field_open()
 
 
@@ -50,6 +51,7 @@ def step_impl(context, language):
 def step_impl(context):
     home_page = HomePage(context.driver)
     home_page.apply_button()
+    time.sleep(2)
 
 
 @then("I check count of vacancies card with '{language}' and '{country}' parameters in the vacancies block")
@@ -59,7 +61,7 @@ def step_impl(context, language, country):
     count_language_in_cart = str(home_page.count_active_vacancy_cart_language(language)) + " jobs found"
     quantity = home_page.active_vacancy_block_h3()
     if count_country_in_cart != count_language_in_cart != quantity:
-        print("country in cart is  ," + count_country_in_cart, "language in cart is  ," + count_language_in_cart, quantity)
+        print("country in cart is  " + count_country_in_cart + ",", "language in cart is  " + count_language_in_cart + ",", quantity)
     assert count_country_in_cart == count_language_in_cart == quantity
 
 

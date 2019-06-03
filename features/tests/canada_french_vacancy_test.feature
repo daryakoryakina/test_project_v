@@ -18,8 +18,8 @@ Feature: quantity of active vacancies when choosing a country and language
     Examples:
     |country                 | language | param   |
     |Australia               | English  | ch-7    |
-    |Canada                  | French   | ch-10   |
     |Russian Federation      | Russian  | ch-22   |
+    |Canada                  | French   | ch-10   |
 
 
    # Scenario Outline: choice a '<language>'
